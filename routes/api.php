@@ -32,3 +32,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
  Route::apiResource('sales',App\Http\Controllers\SaleController::class);
  
  Route::apiResource('countries',App\Http\Controllers\CountryController::class);
+
+ 
+ Route::apiResource('inspections',App\Http\Controllers\InspectionController::class);
