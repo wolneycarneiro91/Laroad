@@ -17,4 +17,7 @@ class Product extends Model
     public function country(){
         return $this->belongsTo(Country::class,'country_id','id');
     }
+    public function order(){
+        return $this->hasMany(Order::class,'product_id','id');
+    }    
 }

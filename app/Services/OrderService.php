@@ -12,14 +12,14 @@ class OrderService
     } 
     public function index($request)
     {    
-        if ($request->filled('limit')) {
-            if ($request->limit == '-1') {
-                $data = $this->order->get();
-            }
-        } else {
-            $data = $this->order->paginate(config('app.pageLimit'));
-        }                                     
-        $data = $this->order->all();
+        // if ($request->filled('limit')) {
+        //     if ($request->limit == '-1') {
+        //         $data = $this->order->get();
+        //     }
+        // } else {
+        //     $data = $this->order->paginate(config('app.pageLimit'));
+        // }           
+        $data = $this->order->with('product')->get();                                  
         return response()->json($data, Response::HTTP_OK );                
     }
     public function store($request)
