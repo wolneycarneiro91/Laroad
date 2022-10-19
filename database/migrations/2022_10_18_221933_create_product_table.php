@@ -17,6 +17,7 @@ return new class extends Migration
             $table->increments('id', true);
             $table->string('name');
             $table->string('price');
+            $table->decimal('size');
             $table->decimal('weight');                      
             $table->softDeletes();
             $table->timestamps();

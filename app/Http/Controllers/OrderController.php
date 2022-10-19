@@ -1,27 +1,41 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Jobs\ProcessProduct;
+use Illuminate\Http\Response;
 use Illuminate\Http\Request;
-use PhpAmqpLib\Connection\AMQPStreamConnection;
-use PhpAmqpLib\Message\AMQPMessage;
+use App\Http\Requests\OrderRequest;
+use App\Services\OrderService;
 
 class OrderController extends Controller
 {
-    public function send_message(Request $message)
-    {
-        $connection = new AMQPStreamConnection(
-            env('RABBITMQ_HOST'),
-            env('RABBITMQ_PORT'),
-            env('RABBITMQ_USER'),
-            env('RABBITMQ_PASSWORD'),
-            env('RABBITMQ_VHOST')
-        );
-        $channel =  $connection->channel();
-        $msg = new AMQPMessage($message);        
-        $channel->basic_publish($msg, 'produto_exchange', 'produto_key');        
-        $channel->close();
-        $connection->close();
+    protected $order_service;
+    public function __construct(OrderService $order_service){
+        $this->order_service = $order_service;        
+    } 
+
+    public function index(Request $request)
+    {    
+         return $this->order_service->index($request);              
     }
+
+    public function store(OrderRequest $request)
+    {        
+        return $this->order_service->store($request);   
+    }
+
+    public function show($id)
+    {
+        return $this->order_service->show($id);       
+    }
+
+    public function update(OrderRequest $request, $id)
+    { 
+        return $this->order_service->update($request,$id);           
+    }
+
+    public function destroy($id)
+    {
+        return $this->order_service->destroy($id);              
+    }    
+    
 }
