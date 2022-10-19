@@ -20,7 +20,7 @@ class ProductService
         // } else {
         //     $data = $this->product->with('country')->paginate(config('app.pageLimit'));
         // }                                     
-        $data = $this->product->get();
+        $data = $this->product->with('country')->get();
         return response()->json($data, Response::HTTP_OK );                
     }
     public function store($request)
