@@ -14,5 +14,7 @@ class Product extends Model
     protected $dates = ['deleted_at'];
     protected $fillable = ["name", "price", "size", "weight", "country_id"];
 
-
+    public function country(){
+        return $this->belongsTo(Country::class,'country_id','id');
+    }
 }
