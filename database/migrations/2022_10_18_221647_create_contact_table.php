@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('contact', function (Blueprint $table) {
-            $table->id();
-            $table->integer('customer_id');
+            $table->increments('id', true);
+            $table->integer('customer_id')->unsigned();
             $table->integer('contact_type')->comment('Type 1 = e-mail and Type 2 = contact number');
             $table->string('contact')->unique();
             $table->foreign('customer_id')->references('id')->on('customer');
