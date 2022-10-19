@@ -19,7 +19,7 @@ class OrderService
         // } else {
         //     $data = $this->order->paginate(config('app.pageLimit'));
         // }           
-        $data = $this->order->with('product')->get();                                  
+        $data = $this->order->with('product')->with('customer')->get();                                  
         return response()->json($data, Response::HTTP_OK );                
     }
     public function store($request)
