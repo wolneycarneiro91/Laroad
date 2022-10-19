@@ -13,7 +13,7 @@ class Sale extends Model
     protected $guarded = ['id'];
     protected $dates = ['deleted_at'];
     protected $fillable = ["order_id","customer_id","sale_date"];
-
+}
 //     public function hasMany(){
 //         return $this->belongsToMany(Order::class,'sale');
 //     }    
