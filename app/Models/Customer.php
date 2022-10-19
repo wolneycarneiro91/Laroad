@@ -13,4 +13,8 @@ class Customer extends Model
     protected $guarded = ['id'];
     protected $dates = ['deleted_at'];
     protected $fillable = ["name", "identification_code"];
+  
+    public function order(){
+        return $this->belongsToMany(Order::class,'sale');
+    }
 }
