@@ -13,4 +13,7 @@ class Order extends Model
     protected $guarded = ['id'];
     protected $dates = ['deleted_at'];
     protected $fillable = ["product_id","payment_method","amount"];
+    public function product(){
+        return $this->belongsTo(Product::class,'product_id','id');
+    }    
 }
