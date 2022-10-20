@@ -20,6 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('auth')->group(function () {
     Route::post('login', [App\Http\Controllers\LoginController::class, 'login']);
+    Route::post('logout', [App\Http\Controllers\LoginController::class, 'logout']);
 });
 
 Route::apiResource('users', App\Http\Controllers\UserController::class);
