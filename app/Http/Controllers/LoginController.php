@@ -6,7 +6,7 @@ use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
 use App\Services\Auth\LoginService;
-
+ 
 class LoginController extends Controller
 {
     protected $login_service;
