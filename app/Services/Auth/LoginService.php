@@ -27,7 +27,7 @@ class LoginService
         if (!$data || !Hash::check($credentials['password'], $data->password)) {
             return response()->json([
                 'title' => 'Singin error',
-                'message' => 'User or password incorrect!',
+                'message' => 'User or password incorrect!', 
                 'type' => 'error',
             ], Response::HTTP_UNAUTHORIZED);
         }

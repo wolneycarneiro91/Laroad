@@ -4,7 +4,7 @@ namespace App\Services;
 
 use Illuminate\Http\Response;
 use App\Models\User;
-use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\Uuid; 
 
 class UserService
 {

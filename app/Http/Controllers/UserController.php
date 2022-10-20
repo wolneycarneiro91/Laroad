@@ -6,7 +6,7 @@ use App\Http\Requests\SaleRequest;
 use App\Services\UserService;
 
 
-class UserController extends Controller {
+class UserController extends Controller { 
 
     protected $user_service;
     public function __construct(UserService $user_service)
